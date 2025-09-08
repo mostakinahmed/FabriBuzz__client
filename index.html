@@ -147,14 +147,6 @@
       </div>
     </nav>
 
-    <script>
-      // Mobile Menu Toggle
-      const menuButton = document.getElementById("mobile-menu-button");
-      const mobileMenu = document.getElementById("mobile-menu");
-      menuButton.addEventListener("click", () => {
-        mobileMenu.classList.toggle("hidden");
-      });
-    </script>
     <!-- Hero Section -->
     <section class="relative h-[80vh] mt-16">
       <div class="max-w-[1200px] mx-auto grid grid-cols-12">
@@ -221,43 +213,8 @@
       <div class="max-w-[1200px] mx-auto grid grid-cols-12 gap-4">
         <div class="col-start-2 col-span-10">
           <h2 class="text-3xl font-bold text-center mb-12">Shop by Category</h2>
-          <div class="grid grid-cols-2 md:grid-cols-4 gap-6">
-            <div
-              class="bg-white shadow-md rounded-lg overflow-hidden hover:scale-105 transform transition cursor-pointer"
-            >
-              <img
-                src="https://images.unsplash.com/photo-1593032465171-4de2a7b5fcd5?auto=format&fit=crop&w=600&q=80"
-                class="w-full h-48 object-cover"
-              />
-              <div class="p-4 text-center font-semibold">Clothing</div>
-            </div>
-            <div
-              class="bg-white shadow-md rounded-lg overflow-hidden hover:scale-105 transform transition cursor-pointer"
-            >
-              <img
-                src="https://images.unsplash.com/photo-1580910051073-f3e0d1c3f69b?auto=format&fit=crop&w=600&q=80"
-                class="w-full h-48 object-cover"
-              />
-              <div class="p-4 text-center font-semibold">Shoes</div>
-            </div>
-            <div
-              class="bg-white shadow-md rounded-lg overflow-hidden hover:scale-105 transform transition cursor-pointer"
-            >
-              <img
-                src="https://images.unsplash.com/photo-1567016543855-36c876e3f1d0?auto=format&fit=crop&w=600&q=80"
-                class="w-full h-48 object-cover"
-              />
-              <div class="p-4 text-center font-semibold">Accessories</div>
-            </div>
-            <div
-              class="bg-white shadow-md rounded-lg overflow-hidden hover:scale-105 transform transition cursor-pointer"
-            >
-              <img
-                src="https://images.unsplash.com/photo-1606814305598-92d7e4c1f5b5?auto=format&fit=crop&w=600&q=80"
-                class="w-full h-48 object-cover"
-              />
-              <div class="p-4 text-center font-semibold">Electronics</div>
-            </div>
+          <div class="grid grid-cols-2 md:grid-cols-4 gap-6" id="category-grid">
+            <!-- data from api -->
           </div>
         </div>
       </div>
@@ -268,97 +225,11 @@
       <div class="max-w-[1200px] mx-auto grid grid-cols-12 gap-4">
         <div class="col-start-2 col-span-10">
           <h2 class="text-3xl font-bold text-center mb-12">All Products</h2>
-          <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-4 gap-6">
-
-            <!-- card 1 -->
-            <div
-              class="bg-white shadow-md rounded-lg overflow-hidden hover:scale-105 transform transition cursor-pointer"
-            >
-              <img
-                src="https://images.unsplash.com/photo-1600181952651-1912b5e6fc9a?auto=format&fit=crop&w=600&q=80"
-                class="w-full h-48 object-cover"
-              />
-              <div class="p-4">
-                <h3 class="font-semibold mb-2">Product Name</h3>
-                <p class="text-indigo-600 font-bold">$99.99</p>
-              </div>
-            </div>
-
-            <div
-              class="bg-white shadow-md rounded-lg overflow-hidden hover:scale-105 transform transition cursor-pointer"
-            >
-              <img
-                src="https://images.unsplash.com/photo-1600181952651-1912b5e6fc9a?auto=format&fit=crop&w=600&q=80"
-                class="w-full h-48 object-cover"
-              />
-              <div class="p-4">
-                <h3 class="font-semibold mb-2">Product Name</h3>
-                <p class="text-indigo-600 font-bold">$99.99</p>
-              </div>
-            </div>
-
-            <div
-              class="bg-white shadow-md rounded-lg overflow-hidden hover:scale-105 transform transition cursor-pointer"
-            >
-              <img
-                src="https://images.unsplash.com/photo-1600181952651-1912b5e6fc9a?auto=format&fit=crop&w=600&q=80"
-                class="w-full h-48 object-cover"
-              />
-              <div class="p-4">
-                <h3 class="font-semibold mb-2">Product Name</h3>
-                <p class="text-indigo-600 font-bold">$99.99</p>
-              </div>
-            </div>
-
-            <div
-              class="bg-white shadow-md rounded-lg overflow-hidden hover:scale-105 transform transition cursor-pointer"
-            >
-              <img
-                src="https://images.unsplash.com/photo-1600181952651-1912b5e6fc9a?auto=format&fit=crop&w=600&q=80"
-                class="w-full h-48 object-cover"
-              />
-              <div class="p-4">
-                <h3 class="font-semibold mb-2">Product Name</h3>
-                <p class="text-indigo-600 font-bold">$99.99</p>
-              </div>
-            </div>
-
-            <div
-              class="bg-white shadow-md rounded-lg overflow-hidden hover:scale-105 transform transition cursor-pointer"
-            >
-              <img
-                src="https://images.unsplash.com/photo-1600181952591-d2e7f94622d0?auto=format&fit=crop&w=600&q=80"
-                class="w-full h-48 object-cover"
-              />
-              <div class="p-4">
-                <h3 class="font-semibold mb-2">Product Name</h3>
-                <p class="text-indigo-600 font-bold">$79.99</p>
-              </div>
-            </div>
-            <div
-              class="bg-white shadow-md rounded-lg overflow-hidden hover:scale-105 transform transition cursor-pointer"
-            >
-              <img
-                src="https://images.unsplash.com/photo-1600181952612-8f6d3a8d17c7?auto=format&fit=crop&w=600&q=80"
-                class="w-full h-48 object-cover"
-              />
-              <div class="p-4">
-                <h3 class="font-semibold mb-2">Product Name</h3>
-                <p class="text-indigo-600 font-bold">$59.99</p>
-              </div>
-            </div>
-            <div
-              class="bg-white shadow-md rounded-lg overflow-hidden hover:scale-105 transform transition cursor-pointer"
-            >
-              <img
-                src="https://images.unsplash.com/photo-1600181952583-4e0e1d0f0b2c?auto=format&fit=crop&w=600&q=80"
-                class="w-full h-48 object-cover"
-              />
-              <div class="p-4">
-                <h3 class="font-semibold mb-2">Product Name</h3>
-                <p class="text-indigo-600 font-bold">$49.99</p>
-              </div>
-            </div>
+          <div
+            class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-4 gap-6"
+            id="allProduct-grid"
+          >
+            <!-- data from api -->
           </div>
         </div>
       </div>
@@ -518,16 +389,8 @@
       </div>
     </footer>
 
-    <script>
-      // Smooth Scroll
-      document.querySelectorAll("nav a").forEach((link) => {
-        link.addEventListener("click", (e) => {
-          e.preventDefault();
-          document
-            .querySelector(link.getAttribute("href"))
-            .scrollIntoView({ behavior: "smooth" });
-        });
-      });
-    </script>
+  
+    <script src="index.js"></script>
+    <script src="utilis.js"></script>
   </body>
 </html>
