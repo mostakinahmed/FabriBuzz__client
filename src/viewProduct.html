@@ -3,16 +3,16 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Fabribuzz</title>
+    <title>FabriBuzz - View Product</title>
     <script src="https://cdn.tailwindcss.com"></script>
   </head>
-  <body class="bg-gray-50 font-sans">
+  <body>
     <!-- Modern Navbar -->
     <nav class="bg-white shadow-md fixed top-0 left-0 w-full z-50">
       <div class="max-w-[1200px] mx-auto px-4 sm:px-6 lg:px-8">
         <div class="flex justify-between items-center h-16">
           <!-- Logo -->
-          <a href="index.html">
+          <a href="../index.html">
             <div class="flex-shrink-0 text-2xl font-bold text-indigo-600">
               FabriBuzz
             </div>
@@ -46,7 +46,7 @@
           <!-- Menu Links + Profile + Cart (Right) -->
           <div class="hidden md:flex items-center space-x-6">
             <a
-              href="#home"
+              href="../index.html"
               class="text-gray-700 hover:text-indigo-600 font-medium"
               >Home</a
             >
@@ -114,7 +114,7 @@
         <!-- Mobile Menu -->
         <div id="mobile-menu" class="hidden md:hidden mt-2 space-y-2">
           <a
-            href="#home"
+            href="../index.html"
             class="block px-4 py-2 text-gray-700 hover:text-indigo-600 font-medium"
             >Home</a
           >
@@ -149,162 +149,9 @@
       </div>
     </nav>
 
-    <!-- Hero Section -->
-    <section class="relative h-[80vh] mt-16">
-      <div class="max-w-[1200px] mx-auto grid grid-cols-12">
-        <!-- Hero image spans full width (col 1 to 12) -->
-        <div class="col-start-1 col-span-12 relative">
-          <img
-            src="img/big.png"
-            class="w-full h-[80vh] object-cover rounded-lg shadow-lg"
-            alt="Hero Image"
-          />
-          <!-- Text overlay removed -->
-        </div>
-      </div>
-    </section>
-
-    <!-- Category Bar -->
-    <section class="bg-white shadow-md">
-      <div class="max-w-[1200px] mx-auto px-4 sm:px-6 lg:px-8">
-        <div
-          class="flex justify-between items-center h-16 overflow-x-auto scrollbar-hide space-x-4"
-        >
-          <!-- Example Categories -->
-          <a
-            href="#clothing"
-            class="flex-shrink-0 px-4 py-2 rounded-full bg-indigo-600 text-white font-semibold hover:bg-indigo-700 transition"
-            >Clothing</a
-          >
-          <a
-            href="#shoes"
-            class="flex-shrink-0 px-4 py-2 rounded-full bg-gray-100 text-gray-700 font-semibold hover:bg-indigo-100 transition"
-            >Shoes</a
-          >
-          <a
-            href="#accessories"
-            class="flex-shrink-0 px-4 py-2 rounded-full bg-gray-100 text-gray-700 font-semibold hover:bg-indigo-100 transition"
-            >Accessories</a
-          >
-          <a
-            href="#electronics"
-            class="flex-shrink-0 px-4 py-2 rounded-full bg-gray-100 text-gray-700 font-semibold hover:bg-indigo-100 transition"
-            >Electronics</a
-          >
-          <a
-            href="#bags"
-            class="flex-shrink-0 px-4 py-2 rounded-full bg-gray-100 text-gray-700 font-semibold hover:bg-indigo-100 transition"
-            >Bags</a
-          >
-          <a
-            href="#watches"
-            class="flex-shrink-0 px-4 py-2 rounded-full bg-gray-100 text-gray-700 font-semibold hover:bg-indigo-100 transition"
-            >Watches</a
-          >
-          <a
-            href="#beauty"
-            class="flex-shrink-0 px-4 py-2 rounded-full bg-gray-100 text-gray-700 font-semibold hover:bg-indigo-100 transition"
-            >Beauty</a
-          >
-        </div>
-      </div>
-    </section>
-
-    <!-- Categories Section -->
-    <section id="categories" class="py-16">
-      <div class="max-w-[1200px] mx-auto grid grid-cols-12 gap-4">
-        <div class="col-start-2 col-span-10">
-          <h2 class="text-3xl font-bold text-center mb-12">Shop by Category</h2>
-          <div class="grid grid-cols-2 md:grid-cols-4 gap-6" id="category-grid">
-            <!-- data from api -->
-          </div>
-        </div>
-      </div>
-    </section>
-
-    <!-- All Products Section -->
-    <section id="products" class="py-16">
-      <div class="max-w-[1200px] mx-auto grid grid-cols-12 gap-4">
-        <div class="col-start-2 col-span-10">
-          <h2 class="text-3xl font-bold text-center mb-12">All Products</h2>
-          <div
-            class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-4 gap-6"
-            id="allProduct-grid"
-          >
-            <!-- data from api -->
-          </div>
-        </div>
-      </div>
-      <!-- Button for All Products -->
-      <div class="text-center mt-8">
-        <a
-          href="src/all-products.html"
-          class="bg-indigo-600 hover:bg-indigo-700 text-white px-6 py-3 rounded-full font-semibold transition"
-        >
-          View All
-        </a>
-      </div>
-    </section>
-
-    <!-- Featured Products Section -->
-    <section id="featured" class="py-16 bg-indigo-50 rounded-lg">
-      <div class="max-w-[1200px] mx-auto grid grid-cols-12 gap-4">
-        <div class="col-start-2 col-span-10">
-          <h2 class="text-3xl font-bold text-center mb-12 text-indigo-800">
-            Featured Products
-          </h2>
-          <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-4 gap-6">
-            <div
-              class="bg-white shadow-lg rounded-lg overflow-hidden hover:scale-105 transform transition cursor-pointer"
-            >
-              <img
-                src="https://images.unsplash.com/photo-1600181952578-1b8e2c9d8c8c?auto=format&fit=crop&w=600&q=80"
-                class="w-full h-48 object-cover"
-              />
-              <div class="p-4">
-                <h3 class="font-semibold mb-2">Featured Product</h3>
-                <p class="text-indigo-600 font-bold">$129.99</p>
-              </div>
-            </div>
-            <div
-              class="bg-white shadow-lg rounded-lg overflow-hidden hover:scale-105 transform transition cursor-pointer"
-            >
-              <img
-                src="https://images.unsplash.com/photo-1600181952560-0f4f3d6c5b1d?auto=format&fit=crop&w=600&q=80"
-                class="w-full h-48 object-cover"
-              />
-              <div class="p-4">
-                <h3 class="font-semibold mb-2">Featured Product</h3>
-                <p class="text-indigo-600 font-bold">$149.99</p>
-              </div>
-            </div>
-            <div
-              class="bg-white shadow-lg rounded-lg overflow-hidden hover:scale-105 transform transition cursor-pointer"
-            >
-              <img
-                src="https://images.unsplash.com/photo-1600181952555-ff3c5d9f5c9e?auto=format&fit=crop&w=600&q=80"
-                class="w-full h-48 object-cover"
-              />
-              <div class="p-4">
-                <h3 class="font-semibold mb-2">Featured Product</h3>
-                <p class="text-indigo-600 font-bold">$199.99</p>
-              </div>
-            </div>
-            <div
-              class="bg-white shadow-lg rounded-lg overflow-hidden hover:scale-105 transform transition cursor-pointer"
-            >
-              <img
-                src="https://images.unsplash.com/photo-1600181952564-8f1e4d5b8c1f?auto=format&fit=crop&w=600&q=80"
-                class="w-full h-48 object-cover"
-              />
-              <div class="p-4">
-                <h3 class="font-semibold mb-2">Featured Product</h3>
-                <p class="text-indigo-600 font-bold">$179.99</p>
-              </div>
-            </div>
-          </div>
-        </div>
-      </div>
+    <!-- Product Details Section -->
+    <section class="py-12 mt-5" id="product-section">
+      <!-- data load from api -->
     </section>
 
     <!-- Footer -->
@@ -340,7 +187,9 @@
         <div class="md:col-span-2">
           <h3 class="text-xl font-semibold mb-4">Quick Links</h3>
           <ul class="space-y-2 text-gray-400">
-            <li><a href="#home" class="hover:text-indigo-500">Home</a></li>
+            <li>
+              <a href="../index.html" class="hover:text-indigo-500">Home</a>
+            </li>
             <li><a href="#about" class="hover:text-indigo-500">About Us</a></li>
             <li>
               <a href="#contact" class="hover:text-indigo-500">Contact</a>
@@ -400,7 +249,6 @@
       </div>
     </footer>
 
-    <script src="index.js"></script>
-    <script src="utilis.js"></script>
+    <script src="../js/viewProduct.js"></script>
   </body>
 </html>
