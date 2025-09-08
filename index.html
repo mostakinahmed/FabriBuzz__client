@@ -13,7 +13,7 @@
         <div class="flex justify-between items-center h-16">
           <!-- Logo -->
           <div class="flex-shrink-0 text-2xl font-bold text-indigo-600">
-            ShopEase
+            FabriBuzz
           </div>
 
           <!-- Search Bar (Center) -->
@@ -155,32 +155,63 @@
         mobileMenu.classList.toggle("hidden");
       });
     </script>
-
     <!-- Hero Section -->
     <section class="relative h-[80vh] mt-16">
       <div class="max-w-[1200px] mx-auto grid grid-cols-12">
         <!-- Hero image spans full width (col 1 to 12) -->
         <div class="col-start-1 col-span-12 relative">
           <img
-            src="https://images.unsplash.com/photo-1606813909224-1c3e0dbff7d4?auto=format&fit=crop&w=1500&q=80"
+            src="img/big.png"
             class="w-full h-[80vh] object-cover rounded-lg shadow-lg"
             alt="Hero Image"
           />
-          <div
-            class="absolute inset-0 bg-black bg-opacity-40 flex flex-col justify-center items-center text-center text-white px-4 rounded-lg"
+          <!-- Text overlay removed -->
+        </div>
+      </div>
+    </section>
+
+    <!-- Category Bar -->
+    <section class="bg-white shadow-md">
+      <div class="max-w-[1200px] mx-auto px-4 sm:px-6 lg:px-8">
+        <div
+          class="flex justify-between items-center h-16 overflow-x-auto scrollbar-hide space-x-4"
+        >
+          <!-- Example Categories -->
+          <a
+            href="#clothing"
+            class="flex-shrink-0 px-4 py-2 rounded-full bg-indigo-600 text-white font-semibold hover:bg-indigo-700 transition"
+            >Clothing</a
           >
-            <h1 class="text-5xl md:text-6xl font-bold mb-4">
-              Discover Your Style
-            </h1>
-            <p class="text-xl md:text-2xl mb-6">
-              Latest Trends & Top Products Just For You
-            </p>
-            <button
-              class="bg-indigo-600 hover:bg-indigo-700 px-6 py-3 rounded-full font-semibold transition"
-            >
-              Shop Now
-            </button>
-          </div>
+          <a
+            href="#shoes"
+            class="flex-shrink-0 px-4 py-2 rounded-full bg-gray-100 text-gray-700 font-semibold hover:bg-indigo-100 transition"
+            >Shoes</a
+          >
+          <a
+            href="#accessories"
+            class="flex-shrink-0 px-4 py-2 rounded-full bg-gray-100 text-gray-700 font-semibold hover:bg-indigo-100 transition"
+            >Accessories</a
+          >
+          <a
+            href="#electronics"
+            class="flex-shrink-0 px-4 py-2 rounded-full bg-gray-100 text-gray-700 font-semibold hover:bg-indigo-100 transition"
+            >Electronics</a
+          >
+          <a
+            href="#bags"
+            class="flex-shrink-0 px-4 py-2 rounded-full bg-gray-100 text-gray-700 font-semibold hover:bg-indigo-100 transition"
+            >Bags</a
+          >
+          <a
+            href="#watches"
+            class="flex-shrink-0 px-4 py-2 rounded-full bg-gray-100 text-gray-700 font-semibold hover:bg-indigo-100 transition"
+            >Watches</a
+          >
+          <a
+            href="#beauty"
+            class="flex-shrink-0 px-4 py-2 rounded-full bg-gray-100 text-gray-700 font-semibold hover:bg-indigo-100 transition"
+            >Beauty</a
+          >
         </div>
       </div>
     </section>
@@ -238,6 +269,8 @@
         <div class="col-start-2 col-span-10">
           <h2 class="text-3xl font-bold text-center mb-12">All Products</h2>
           <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-4 gap-6">
+
+            <!-- card 1 -->
             <div
               class="bg-white shadow-md rounded-lg overflow-hidden hover:scale-105 transform transition cursor-pointer"
             >
@@ -250,6 +283,46 @@
                 <p class="text-indigo-600 font-bold">$99.99</p>
               </div>
             </div>
+
+            <div
+              class="bg-white shadow-md rounded-lg overflow-hidden hover:scale-105 transform transition cursor-pointer"
+            >
+              <img
+                src="https://images.unsplash.com/photo-1600181952651-1912b5e6fc9a?auto=format&fit=crop&w=600&q=80"
+                class="w-full h-48 object-cover"
+              />
+              <div class="p-4">
+                <h3 class="font-semibold mb-2">Product Name</h3>
+                <p class="text-indigo-600 font-bold">$99.99</p>
+              </div>
+            </div>
+
+            <div
+              class="bg-white shadow-md rounded-lg overflow-hidden hover:scale-105 transform transition cursor-pointer"
+            >
+              <img
+                src="https://images.unsplash.com/photo-1600181952651-1912b5e6fc9a?auto=format&fit=crop&w=600&q=80"
+                class="w-full h-48 object-cover"
+              />
+              <div class="p-4">
+                <h3 class="font-semibold mb-2">Product Name</h3>
+                <p class="text-indigo-600 font-bold">$99.99</p>
+              </div>
+            </div>
+
+            <div
+              class="bg-white shadow-md rounded-lg overflow-hidden hover:scale-105 transform transition cursor-pointer"
+            >
+              <img
+                src="https://images.unsplash.com/photo-1600181952651-1912b5e6fc9a?auto=format&fit=crop&w=600&q=80"
+                class="w-full h-48 object-cover"
+              />
+              <div class="p-4">
+                <h3 class="font-semibold mb-2">Product Name</h3>
+                <p class="text-indigo-600 font-bold">$99.99</p>
+              </div>
+            </div>
+
             <div
               class="bg-white shadow-md rounded-lg overflow-hidden hover:scale-105 transform transition cursor-pointer"
             >
@@ -360,7 +433,7 @@
       >
         <!-- Logo & Description -->
         <div class="md:col-span-4">
-          <h2 class="text-2xl font-bold text-indigo-600 mb-4">ShopEase</h2>
+          <h2 class="text-2xl font-bold text-indigo-600 mb-4">FabriBuzz</h2>
           <p class="text-gray-400 mb-4">
             Your one-stop shop for latest trends, electronics, fashion, and
             more. Experience seamless shopping with us.
