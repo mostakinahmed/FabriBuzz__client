@@ -1,8 +1,10 @@
 const allProductGrid = document.getElementById("allProduct-grid");
 const loaderAllCategory = document.getElementById("loading-allcategory");
 const loaderAllProduct = document.getElementById("loading-allProduct");
+const loadingForSlider = document.getElementById("loadingForSlider");
 loaderAllCategory.classList.remove("hidden");
 loaderAllProduct.classList.remove("hidden");
+loadingForSlider.classList.remove("hidden");
 async function fetchAllProducts() {
   try {
     const response = await fetch("https://fabribuzz.onrender.com/api/product");
@@ -15,7 +17,7 @@ async function fetchAllProducts() {
 }
 
 function displayAllProducts(products) {
-  products.forEach((product) => {
+  products.slice(0, 8).forEach((product) => {
     const productCard = document.createElement("div");
     productCard.className = "border rounded-lg p-3";
     productCard.innerHTML = `
@@ -38,42 +40,6 @@ function displayAllProducts(products) {
 }
 document.addEventListener("DOMContentLoaded", fetchAllProducts);
 
-//
-// -------------------fetch category---------------------
-const categoryGrid = document.getElementById("category-grid");
-async function fetchCategories() {
-  try {
-    const response = await fetch("https://fabribuzz.onrender.com/api/category");
-    const categories = await response.json();
-
-    displayCategories(categories);
-  } catch (error) {
-    console.error("Error fetching categories:", error);
-  }
-}
-
-function displayCategories(categories) {
-  categories.forEach((category) => {
-    const categoryCard = document.createElement("div");
-
-    categoryCard.innerHTML = `
-           <div
-              class="bg-white shadow-md rounded-lg overflow-hidden hover:scale-105 transform transition cursor-pointer"
-            >
-              <img
-                src="${category.image}"
-                class="w-full h-48 object-cover"
-              />
-              <div class="p-4">
-                <h3 class="font-semibold mb-2">${category.catName}</h3>
-              </div>
-            </div>
-        `;
-    categoryGrid.appendChild(categoryCard);
-  });
-}
-document.addEventListener("DOMContentLoaded", fetchCategories);
-
 //fetch category data for navbar
 const categoryList = document.getElementById("category-list");
 async function fetchCategoryList() {
@@ -94,5 +60,42 @@ async function fetchCategoryList() {
     console.error("Error fetching category list:", error);
   }
 }
-
 document.addEventListener("DOMContentLoaded", fetchCategoryList);
+
+//data fetch for new arival slider
+const newArivalSlider = document.getElementById("category-grid");
+
+async function fetchAllProductForNewSlider() {
+  try {
+    const response = await fetch("https://fabribuzz.onrender.com/api/product");
+    const products = await response.json(); // Assuming the response is a JSON array of products
+    console.log(products);
+
+    displaySlider(products);
+  } catch (error) {
+    console.error("Error fetching products:", error);
+  }
+}
+
+function displaySlider(products) {
+  newArivalSlider.innerHTML = "";
+  console.log(products);
+
+  products.forEach((product) => {
+    const productCard = document.createElement("div");
+    productCard.innerHTML = `
+           <div
+                class="slide-card flex-shrink-0 w-[280px] snap-center bg-white shadow-md rounded-lg overflow-hidden hover:scale-105 transform transition cursor-pointer" onclick="window.location.href='src/viewProduct.html?id=${product._id}'"
+              >
+                <img src="${product.images}" class="w-full h-48 object-cover" />
+                <div class="p-4">
+                  <h3 class="font-semibold mb-2">${product.name}</h3>
+                </div>
+              </div>
+        `;
+
+    loadingForSlider.classList.add("hidden");
+    newArivalSlider.appendChild(productCard);
+  });
+}
+document.addEventListener("DOMContentLoaded", fetchAllProductForNewSlider);
