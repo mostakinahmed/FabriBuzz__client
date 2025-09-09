@@ -1,6 +1,6 @@
 const urlParams = new URLSearchParams(window.location.search);
 const productId = urlParams.get("id");
-
+loading.classList.remove("hidden");
 async function fetchProductDetails() {
   try {
     const response = await fetch(`https://fabribuzz.onrender.com/api/product`);
@@ -9,6 +9,10 @@ async function fetchProductDetails() {
     //find product by id
     const productData = product.find((p) => p._id === productId);
     const productSection = document.getElementById("product-section");
+
+    //loader
+    const loading = document.getElementById("loading");
+
     productSection.innerHTML = `<div
         class="max-w-[1200px] mx-auto grid grid-cols-1 md:grid-cols-2 gap-8 px-4 sm:px-6 lg:px-8"
       >
@@ -71,6 +75,7 @@ async function fetchProductDetails() {
         </div>
       </div>
                     `;
+    loading.classList.add("hidden");
   } catch (error) {
     console.error("Error fetching product details:", error);
   }

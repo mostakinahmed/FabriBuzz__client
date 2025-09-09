@@ -1,4 +1,6 @@
 const allProductGrid = document.getElementById("product-grid");
+const loadingAllProduct = document.getElementById("loading-allProduct");
+loadingAllProduct.classList.remove("hidden");
 
 async function fetchAllProducts() {
   try {
@@ -12,12 +14,15 @@ async function fetchAllProducts() {
 }
 
 function displayAllProducts(products) {
+  allProductGrid.innerHTML = "";
+  console.log(products);
+
   products.forEach((product) => {
     const productCard = document.createElement("div");
-
+    productCard.className = "border rounded-lg p-4";
     productCard.innerHTML = `
-           <div
-              class="bg-white shadow-md rounded-lg overflow-hidden hover:scale-105 transform transition cursor-pointer" onclick="window.location.href='viewProduct.html?id=${product._id}'"
+          <div
+              class="bg-white shadow-md rounded-lg overflow-hidden hover:scale-105 transform transition cursor-pointer" onclick="window.location.href='../src/viewProduct.html?id=${product._id}'"
             >
               <img
                 src="${product.images}"
@@ -29,6 +34,7 @@ function displayAllProducts(products) {
               </div>
             </div>
         `;
+    loadingAllProduct.classList.add("hidden");
     allProductGrid.appendChild(productCard);
   });
 }

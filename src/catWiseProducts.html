@@ -160,6 +160,16 @@
                 class="flex justify-between items-center h-16 overflow-x-auto scrollbar-hide space-x-4"
                 id="category-list"
               >
+                <!-- loader -->
+                <div
+                  id="loading-cat"
+                  class="flex items-center justify-center w-full h-16 space-x-2 hidden"
+                >
+                  <div
+                    class="w-5 h-5 border-2 border-indigo-500 border-t-transparent rounded-full animate-spin"
+                  ></div>
+                  <span class="text-sm text-gray-600">Loading...</span>
+                </div>
                 <!-- Categories load from API -->
               </div>
             </div>
@@ -167,7 +177,7 @@
 
           <!-- Section Heading -->
           <div
-            class="w-full bg-gradient-to-r from-indigo-500 to-purple-600 py-6 mb-4"
+            class="w-full bg-gradient-to-r from-indigo-500 to-purple-600 py-3 mb-4"
             id="section-heading-container"
           >
             <!-- load from API -->
@@ -175,7 +185,7 @@
               class="text-4xl font-extrabold text-center text-white tracking-tight"
               id="section-heading"
             >
-              None
+              Loading.....
             </h2>
           </div>
 
@@ -185,6 +195,19 @@
             id="products-container"
           >
             <!-- Data from API -->
+            <!-- loader -->
+            <section id="loading-catWiseProduct" class="hidden">
+              <div class="flex items-center justify-center min-h-[300px]">
+                <div class="flex flex-col items-center space-y-4">
+                  <!-- Spinner -->
+                  <div
+                    class="w-12 h-12 border-4 border-indigo-500 border-t-transparent rounded-full animate-spin"
+                  ></div>
+                  <!-- Text -->
+                  <p class="text-gray-600 font-medium">Loading products...</p>
+                </div>
+              </div>
+            </section>
           </div>
         </div>
       </div>

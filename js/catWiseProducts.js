@@ -1,5 +1,9 @@
 //fetch category data for navbar
 const categoryList = document.getElementById("category-list");
+const loadingCatWiseProduct = document.getElementById("loading-catWiseProduct");
+const loadingCat = document.getElementById("loading-cat");
+loadingCatWiseProduct.classList.remove("hidden");
+loadingCat.classList.remove("hidden");
 async function fetchCategoryList() {
   try {
     const response = await fetch("https://fabribuzz.onrender.com/api/category");
@@ -19,7 +23,7 @@ async function fetchCategoryList() {
         // Fetch and display products for the selected category
         displayProductsByCategory(category.catID);
       });
-
+      loadingCat.classList.add("hidden");
       categoryList.appendChild(categoryItem);
     });
   } catch (error) {
@@ -37,8 +41,11 @@ async function displayProductsByCategory(categoryID) {
       `https://fabribuzz.onrender.com/api/product?category=${categoryID}`
     );
     const products = await response.json();
+
+    // Clear existing products
     const productsContainer = document.getElementById("products-container");
     productsContainer.innerHTML = "";
+
     if (products.length > 0) {
       noProductFound.classList.add("hidden");
       // Clear existing products
@@ -48,11 +55,20 @@ async function displayProductsByCategory(categoryID) {
       products.forEach((product) => {
         const productItem = document.createElement("div");
         productItem.className = "border rounded-lg p-4";
-        productItem.innerHTML = `
-        <h3 class="font-semibold">${product.name}</h3>
-        <p class="text-gray-600">${product.description}</p>
-        <span class="block mt-2 text-lg font-bold">$${product.price}</span>
+        productItem.innerHTML = `<div
+              class="bg-white shadow-md rounded-lg overflow-hidden hover:scale-105 transform transition cursor-pointer" onclick="window.location.href='../src/viewProduct.html?id=${product._id}'"
+            >
+              <img
+                src="${product.images}"
+                class="w-full h-48 object-cover"
+              />
+              <div class="p-4">
+                <h3 class="font-semibold mb-2">${product.name}</h3>
+                <p class="text-indigo-600 font-bold">$${product.price}</p>
+              </div>
+            </div>
       `;
+        loadingCatWiseProduct.classList.add("hidden");
         productsContainer.appendChild(productItem);
       });
     } else {
