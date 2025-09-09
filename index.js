@@ -34,13 +34,13 @@ function displayAllProducts(products) {
 }
 document.addEventListener("DOMContentLoaded", fetchAllProducts);
 
-//fetch category
+//
+// -------------------fetch category---------------------
 const categoryGrid = document.getElementById("category-grid");
 async function fetchCategories() {
   try {
     const response = await fetch("https://fabribuzz.onrender.com/api/category");
     const categories = await response.json();
-    console.log(categories);
 
     displayCategories(categories);
   } catch (error) {
@@ -68,5 +68,26 @@ function displayCategories(categories) {
     categoryGrid.appendChild(categoryCard);
   });
 }
-
 document.addEventListener("DOMContentLoaded", fetchCategories);
+
+//fetch category data for navbar
+const categoryList = document.getElementById("category-list");
+async function fetchCategoryList() {
+  try {
+    const response = await fetch("https://fabribuzz.onrender.com/api/category");
+    const categories = await response.json();
+
+    categories.forEach((category) => {
+      const categoryItem = document.createElement("a");
+      categoryItem.href = `src/catWiseProducts.html?id=${category.catID}`;
+      categoryItem.className =
+        "flex-shrink-0 px-4 py-2 rounded-full bg-gray-100 text-gray-700 font-semibold hover:bg-indigo-100 transition";
+      categoryItem.textContent = category.catName;
+      categoryList.appendChild(categoryItem);
+    });
+  } catch (error) {
+    console.error("Error fetching category list:", error);
+  }
+}
+
+document.addEventListener("DOMContentLoaded", fetchCategoryList);
