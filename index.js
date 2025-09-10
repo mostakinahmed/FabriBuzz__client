@@ -83,6 +83,7 @@ function displaySlider(products) {
 
   products.forEach((product) => {
     const productCard = document.createElement("div");
+    //  productCard.className = "border rounded-lg p-3";
     productCard.innerHTML = `
            <div
                 class="slide-card flex-shrink-0 w-[280px] snap-center bg-white shadow-md rounded-lg overflow-hidden hover:scale-105 transform transition cursor-pointer" onclick="window.location.href='src/viewProduct.html?id=${product._id}'"
