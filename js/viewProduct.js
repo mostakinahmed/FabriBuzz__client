@@ -51,12 +51,13 @@ async function fetchProductDetails() {
           </div>
 
           <div class="flex space-x-4 mb-6">
-            <button
-              class="bg-indigo-600 text-white px-6 py-3 rounded-lg hover:bg-indigo-700 transition"
-            >
-              Add to Cart
-            </button>
-            <button
+              <div class="flex items-center space-x-2">
+  <button type="button" id="decrease" class="px-2 py-1 bg-gray-200 rounded hover:bg-gray-300">-</button>
+  <input type="number" id="quantity" value="1" min="1" class="w-16 text-center border border-gray-300 rounded">
+  <button type="button" id="increase" class="px-2 py-1 bg-gray-200 rounded hover:bg-gray-300">+</button>
+</div>
+            <button 
+            id="buyNowBtn"
               class="bg-gray-200 text-gray-700 px-6 py-3 rounded-lg hover:bg-gray-300 transition"
             >
               Buy Now
@@ -76,6 +77,27 @@ async function fetchProductDetails() {
       </div>
                     `;
     loading.classList.add("hidden");
+
+    const buyNowBtn = document.getElementById("buyNowBtn");
+    const qtyInput = document.getElementById("quantity");
+    const increaseBtn = document.getElementById("increase");
+    const decreaseBtn = document.getElementById("decrease");
+
+    increaseBtn.addEventListener("click", () => {
+      qtyInput.value = Number(qtyInput.value) + 1;
+    });
+
+    decreaseBtn.addEventListener("click", () => {
+      if (Number(qtyInput.value) > 1) {
+        qtyInput.value = Number(qtyInput.value) - 1;
+      }
+    });
+
+    //manage button
+    buyNowBtn.addEventListener("click", () => {
+      const qty = qtyInput.value;
+      window.location.href = `../src/orderPage.html?id=${productId}&qty=${qty}`;
+    });
   } catch (error) {
     console.error("Error fetching product details:", error);
   }
