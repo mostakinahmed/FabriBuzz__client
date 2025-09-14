@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Order Confirmed - FabriBuzz</title>
+
+    <!-- Tailwind CSS CDN -->
+    <script src="https://cdn.tailwindcss.com"></script>
+
+    <!-- Animate.css CDN -->
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css"
+    />
+
+    <!-- Confetti -->
+    <script src="https://cdn.jsdelivr.net/npm/canvas-confetti@1.5.1/dist/confetti.browser.min.js"></script>
+
+    <style>
+      body {
+        font-family: Arial, sans-serif;
+        background-color: #f5f5f5;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        height: 100vh;
+      }
+
+      .confirmation-container {
+        background: white;
+        padding: 40px;
+        border-radius: 12px;
+        box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        text-align: center;
+        max-width: 600px;
+      }
+
+      .order-details {
+        background: #e8fbe8;
+        padding: 20px;
+        border-radius: 8px;
+        margin-top: 20px;
+        text-align: left;
+      }
+
+      .back-home {
+        display: inline-block;
+        margin-top: 20px;
+        color: #007bff;
+        text-decoration: none;
+        font-weight: bold;
+      }
+
+      /* Fix for animate.css not showing animation */
+      .force-visible {
+        visibility: visible !important;
+      }
+    </style>
+  </head>
+  <body>
+    <div
+      class="confirmation-container animate__animated animate__fadeInUp force-visible"
+    >
+      <h1
+        class="animate__animated animate__bounceIn force-visible text-3xl font-bold mb-4"
+      >
+        🎉 Congratulations!
+      </h1>
+      <p
+        class="animate__animated animate__fadeIn force-visible text-lg text-gray-700"
+      >
+        Your order has been received successfully.
+      </p>
+
+      <div
+        class="order-details animate__animated animate__fadeInUp force-visible mt-6"
+      >
+        <p><strong>Order ID:</strong> <span>#123456</span></p>
+        <p><strong>Product:</strong> Premium Cotton Shirt</p>
+        <p><strong>Quantity:</strong> 1</p>
+        <p><strong>Total Price:</strong> ₹899</p>
+      </div>
+
+      <p
+        class="animate__animated animate__fadeInUp animate__delay-1s force-visible mt-6 text-gray-700"
+      >
+        Thank you for shopping with <strong>FabriBuzz</strong>!
+      </p>
+
+      <a
+        class="back-home animate__animated animate__fadeInUp animate__delay-2s force-visible"
+        href="../index.html"
+      >
+        ⬅ Back to Home
+      </a>
+    </div>
+
+    <script>
+      // Confetti on page load
+      window.onload = () => {
+        confetti({
+          particleCount: 100,
+          spread: 70,
+          origin: { y: 0.6 },
+        });
+      };
+    </script>
+  </body>
+</html>

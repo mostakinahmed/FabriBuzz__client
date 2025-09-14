@@ -96,7 +96,7 @@ async function fetchProductDetails() {
     //manage button
     buyNowBtn.addEventListener("click", () => {
       const qty = qtyInput.value;
-      window.location.href = `../src/orderPage.html?id=${productId}&qty=${qty}`;
+      window.location.href = `../src/orderPage.html?id=${productId}&qty=${qty}&p=${productData.pID}`;
     });
   } catch (error) {
     console.error("Error fetching product details:", error);

@@ -5,7 +5,47 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>FabriBuzz - View Product</title>
     <script src="https://cdn.tailwindcss.com"></script>
+    <style>
+      body {
+        font-family: Arial, sans-serif;
+        background-color: #f5f5f5;
+        display: flexbox;
+        align-items: center;
+        justify-content: center;
+        height: 100vh;
+      }
 
+      .confirmation-container {
+        background: white;
+        padding: 40px;
+        width: auto;
+        border-radius: 12px;
+        box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        text-align: center;
+        max-width: 600px;
+      }
+
+      .order-details {
+        background: #e8fbe8;
+        padding: 20px;
+        border-radius: 8px;
+        margin-top: 20px;
+        text-align: left;
+      }
+
+      .back-home {
+        display: inline-block;
+        margin-top: 20px;
+        color: #007bff;
+        text-decoration: none;
+        font-weight: bold;
+      }
+
+      /* Fix for animate.css not showing animation */
+      .force-visible {
+        visibility: visible !important;
+      }
+    </style>
     <style type="text/tailwindcss">
       /* apply to all form controls inside #orderForm */
       #orderForm input,
@@ -166,6 +206,7 @@
     <!-- main section -->
     <section
       class="max-w-6xl pt-10 mx-auto my-10 bg-white/80 backdrop-blur shadow-xl rounded-2xl overflow-hidden"
+      id="order-page-form"
     >
       <!-- header -->
       <div
@@ -186,8 +227,7 @@
             >
             <input
               type="text"
-              name="name"
-              required
+              name="customerName"
               placeholder="Enter Your Full Name"
             />
           </div>
@@ -197,8 +237,7 @@
             >
             <input
               type="email"
-              name="email"
-              required
+              name="customerEmail"
               placeholder="you@example.com"
             />
           </div>
@@ -208,8 +247,7 @@
             >
             <input
               type="tel"
-              name="phone"
-              required
+              name="customerPhone"
               placeholder="+8801XXXXXXXXX"
             />
           </div>
@@ -217,7 +255,7 @@
             <label class="text-sm font-semibold text-gray-700 mb-1 block"
               >Order Date</label
             >
-            <input type="date" name="orderDate" required />
+            <input type="date" name="orderDate" />
           </div>
         </div>
 
@@ -237,20 +275,6 @@
               <tbody id="productTableBody" class="divide-y divide-gray-100">
                 <tr class="hover:bg-gray-50"></tr>
                 <!-- load from api -->
-                <!-- </tbody> -->
-                <!-- <tfoot class="bg-gray-50">
-                <tr>
-                  <td
-                    colspan="3"
-                    class="p-3 text-right font-bold text-gray-700"
-                  >
-                    Total:
-                  </td>
-                  <td class="p-3 font-extrabold text-indigo-700 text-xl">
-                    $<span id="orderTotal">10</span>
-                  </td>
-                </tr>
-              </tfoot> -->
               </tbody>
             </table>
 
@@ -279,7 +303,6 @@
           <textarea
             name="address"
             rows="3"
-            required
             placeholder="Street, City, State, Zip"
           ></textarea>
         </div>
@@ -289,7 +312,7 @@
           <label class="text-sm font-semibold text-gray-700 mb-1 block"
             >Payment Method</label
           >
-          <select name="payment" required>
+          <select name="payment">
             <option value="" disabled selected>Select a payment method</option>
             <option value="cash">Cash on Delivery</option>
             <option value="card">Credit/Debit Card</option>
@@ -297,22 +320,11 @@
           </select>
         </div>
 
-        <!-- Notes -->
-        <div>
-          <label class="text-sm font-semibold text-gray-700 mb-1 block"
-            >Order Notes</label
-          >
-          <textarea
-            name="notes"
-            rows="2"
-            placeholder="Any special instructions..."
-          ></textarea>
-        </div>
-
         <!-- Submit -->
         <div class="flex items-center space-x-4">
           <button
             type="submit"
+            id="place-order"
             class="bg-gradient-to-r from-indigo-500 to-purple-600 text-white px-8 py-3 rounded-full font-semibold shadow-lg hover:shadow-xl hover:scale-[1.02] transform transition"
           >
             Place Order
@@ -330,10 +342,27 @@
         </div>
       </form>
     </section>
-
+    <!-- loader -->
+    <section id="loadingForCongratulationPage" class="hidden">
+      <div class="flex items-center justify-center min-h-[300px]">
+        <div class="flex flex-col items-center space-y-4">
+          <!-- Spinner -->
+          <div
+            class="w-12 h-12 border-4 border-indigo-500 border-t-transparent rounded-full animate-spin"
+          ></div>
+          <!-- Text -->
+          <p class="text-gray-600 font-medium">
+            Please Wait. Your Order is being Procesing.....
+          </p>
+        </div>
+      </div>
+    </section>
     <!-- Footer -->
     <!-- Modern E-commerce Footer -->
-    <footer class="bg-gray-900 text-gray-200 mt-16">
+    <footer
+      class="mt-[130px] bg-gray-900 text-gray-200 mt-16"
+      id="orderPageFooter"
+    >
       <div
         class="max-w-[1200px] mx-auto px-4 sm:px-6 lg:px-8 py-12 grid grid-cols-1 md:grid-cols-12 gap-8"
       >
