@@ -2,6 +2,7 @@ const allProductGrid = document.getElementById("allProduct-grid");
 const loaderAllCategory = document.getElementById("loading-allcategory");
 const loaderAllProduct = document.getElementById("loading-allProduct");
 const loadingForSlider = document.getElementById("loadingForSlider");
+const categoryList = document.getElementById("category-list");
 loaderAllCategory.classList.remove("hidden");
 loaderAllProduct.classList.remove("hidden");
 loadingForSlider.classList.remove("hidden");
@@ -41,7 +42,7 @@ function displayAllProducts(products) {
 document.addEventListener("DOMContentLoaded", fetchAllProducts);
 
 //fetch category data for navbar
-const categoryList = document.getElementById("category-list");
+
 async function fetchCategoryList() {
   try {
     const response = await fetch("https://fabribuzz.onrender.com/api/category");

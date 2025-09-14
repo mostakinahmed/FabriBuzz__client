@@ -2,8 +2,11 @@
 const categoryList = document.getElementById("category-list");
 const loadingCatWiseProduct = document.getElementById("loading-catWiseProduct");
 const loadingCat = document.getElementById("loading-cat");
+const productsContainer = document.getElementById("products-container");
+const noProductFound = document.getElementById("noProductFound");
 loadingCatWiseProduct.classList.remove("hidden");
 loadingCat.classList.remove("hidden");
+
 async function fetchCategoryList() {
   try {
     const response = await fetch("https://fabribuzz.onrender.com/api/category");
@@ -17,9 +20,14 @@ async function fetchCategoryList() {
 
       // Add click event
       categoryItem.addEventListener("click", () => {
+        noProductFound.classList.add("hidden");
+        productsContainer.classList.add("hidden");
+        loadingCatWiseProduct.classList.remove("hidden");
+
         // Update section heading
         document.querySelector("#section-heading").textContent =
           category.catName;
+
         // Fetch and display products for the selected category
         displayProductsByCategory(category.catID);
       });
@@ -32,10 +40,8 @@ async function fetchCategoryList() {
 }
 document.addEventListener("DOMContentLoaded", fetchCategoryList);
 
-//show cat data
+// //show cat data
 async function displayProductsByCategory(categoryID) {
-  const noProductFound = document.getElementById("noProductFound");
-
   try {
     const response = await fetch(
       `https://fabribuzz.onrender.com/api/product?category=${categoryID}`
@@ -43,15 +49,12 @@ async function displayProductsByCategory(categoryID) {
     const products = await response.json();
 
     // Clear existing products
-    const productsContainer = document.getElementById("products-container");
     productsContainer.innerHTML = "";
-
+    loadingCatWiseProduct.classList.add("hidden");
     if (products.length > 0) {
       noProductFound.classList.add("hidden");
-      // Clear existing products
-      // const productsContainer = document.getElementById("products-container");
-      // productsContainer.innerHTML = "";
-      // Render new products
+      productsContainer.classList.remove("hidden");
+
       products.forEach((product) => {
         const productItem = document.createElement("div");
         productItem.className = "border rounded-lg p-4";
