@@ -46,3 +46,11 @@ function updateTimer() {
 
 const timerInterval = setInterval(updateTimer, 1000);
 updateTimer();
+
+//loader for homepage
+window.addEventListener("DOMContentLoaded", () => {
+  setTimeout(() => {
+    document.getElementById("loader").classList.add("hidden"); // hide loader
+    document.getElementById("mainContent").classList.remove("hidden"); // show content
+  }, 2000); // 2 seconds
+});
