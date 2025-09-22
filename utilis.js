@@ -60,7 +60,7 @@ window.addEventListener("DOMContentLoaded", () => {
   const mainContent = document.getElementById("mainContent");
 
   // Check if the loader was already shown
-  const loaderShown = localStorage.getItem("loaderShown");
+  const loaderShown = sessionStorage.getItem("loaderShown");
 
   if (!loaderShown) {
     // Show loader for 2 seconds
@@ -70,11 +70,11 @@ window.addEventListener("DOMContentLoaded", () => {
       mainContent.classList.remove("hidden");
 
       // Remember that loader has been shown
-      localStorage.setItem("loaderShown", "true");
+      sessionStorage.setItem("loaderShown", "true");
     }, 2000);
   } else {
     // Loader already shown, skip it
-    loader.classList.add("hidden");
+    // loader.classList.add("hidden");
     mainContent.classList.remove("hidden");
   }
 });
