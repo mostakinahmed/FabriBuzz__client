@@ -64,6 +64,7 @@ window.addEventListener("DOMContentLoaded", () => {
 
   if (!loaderShown) {
     // Show loader for 2 seconds
+    loader.classList.remove("hidden");
     setTimeout(() => {
       loader.classList.add("hidden");
       mainContent.classList.remove("hidden");
