@@ -18,16 +18,17 @@ async function fetchAllProducts() {
 }
 
 function displayAllProducts(products) {
-  products.slice(0, 8).forEach((product) => {
+  products.slice(0, 10).forEach((product) => {
     const productCard = document.createElement("div");
-    productCard.className = "border rounded-lg p-3";
+
     productCard.innerHTML = `
            <div
-              class="bg-white shadow-md rounded-lg overflow-hidden hover:scale-105 transform transition cursor-pointer" onclick="window.location.href='src/viewProduct.html?id=${product._id}'"
+              class="bg-white w-full pt-2 shadow-md rounded-lg overflow-hidden hover:scale-105 transform transition cursor-pointer"
+" onclick="window.location.href='src/viewProduct.html?id=${product._id}'"
             >
               <img
                 src="${product.images}"
-                class="w-full h-48 object-cover"
+                class="w-full h-48  pt-2 object-cover"
               />
               <div class="p-4">
                 <h3 class="font-semibold mb-2">${product.name}</h3>
@@ -87,10 +88,10 @@ function displaySlider(products) {
     //  productCard.className = "border rounded-lg p-3";
     productCard.innerHTML = `
            <div
-                class="slide-card flex-shrink-0 w-[280px] snap-center bg-white shadow-md rounded-lg overflow-hidden hover:scale-105 transform transition cursor-pointer" onclick="window.location.href='src/viewProduct.html?id=${product._id}'"
+                class="slide-card flex-shrink-0 w-[200px] snap-center bg-white shadow-md rounded-lg overflow-hidden hover:scale-105 transform transition cursor-pointer" onclick="window.location.href='src/viewProduct.html?id=${product._id}'"
               >
-                <img src="${product.images}" class="w-full h-48 object-cover" />
-                <div class="p-4">
+                <img src="${product.images}" class="w-full h-48 pt-1 object-cover" />
+                <div class="p-4 mr-4 truncate">
                   <h3 class="font-semibold mb-2">${product.name}</h3>
                 </div>
               </div>

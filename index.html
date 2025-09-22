@@ -188,9 +188,9 @@
     </section>
 
     <!-- New Arrival Section (slider) -->
-    <section id="newArrival" class="py-16">
+    <section id="newArrival" class="py-8">
       <div class="max-w-[1200px] mx-auto grid grid-cols-12 gap-4">
-        <div class="col-start-2 col-span-10">
+        <div class="col-start-1 col-span-12">
           <!-- Heading -->
           <div
             class="w-full bg-gradient-to-r from-indigo-500 to-purple-600 py-3 mb-1"
@@ -203,7 +203,7 @@
           </div>
 
           <!-- Slider container (relative for arrows) -->
-          <div class="relative">
+          <div class="relative mt-2">
             <!-- Prev / Next buttons -->
             <button
               id="prev-btn"
@@ -270,10 +270,69 @@
       </div>
     </section>
 
+    <!-- Mega Offer Section -->
+    <section class="relative py-6">
+      <div
+        class="max-w-[1200px] mx-auto grid grid-cols-12 gap-6 items-center border border-1 border-blue-300 bg-blue-100 p-6 rounded-lg shadow-lg"
+      >
+        <!-- Image side (6/12) -->
+        <div class="col-span-12 md:col-span-6 relative">
+          <img
+            src="./img/mouse 2.png"
+            class="w-full h-[25vh] sm:h-[30vh] md:h-[35vh] lg:h-[40vh] object-cover rounded-lg shadow-lg"
+            alt="Mega Offer Product"
+          />
+          <span
+            class="absolute top-4 left-4 bg-yellow-400 text-black font-bold px-4 py-1 rounded-full text-sm uppercase"
+          >
+            Mega Offer
+          </span>
+        </div>
+
+        <!-- Content side (6/12) -->
+        <div class="col-span-12 md:col-span-6 space-y-5">
+          <h2 class="text-3xl md:text-4xl font-extrabold leading-tight">
+            Limited Time Mega Offer!
+          </h2>
+          <p class="text-gray-700 text-base md:text-lg">
+            Grab your favorite products now at an unbeatable discount. Don’t
+            miss out — only for this week!
+          </p>
+          <div class="flex space-x-4">
+            <button
+              class="bg-yellow-400 hover:bg-yellow-300 text-black font-semibold px-5 py-2.5 rounded-xl transition"
+            >
+              Buy Now
+            </button>
+            <button
+              class="border border-gray-800 hover:bg-gray-800 hover:text-white px-5 py-2.5 rounded-xl font-semibold transition"
+            >
+              View Details
+            </button>
+          </div>
+
+          <!-- Stylish Timer -->
+          <div class="mt-4 flex items-center space-x-4">
+            <span
+              class="text-lg text-red-500 font-bold uppercase bg-gray-100 px-3 py-1 rounded-full animate-pulse"
+            >
+              Hurry! Offer Ending Soon
+            </span>
+            <span
+              id="mega-offer-timer"
+              class="text-lg md:text-xl font-bold bg-gradient-to-r from-red-400 to-pink-500 text-white px-4 py-2 rounded-2xl shadow-lg tracking-wider"
+            >
+              00:00:00
+            </span>
+          </div>
+        </div>
+      </div>
+    </section>
+
     <!-- All Products Section -->
     <section id="products">
-      <div class="max-w-[1200px] mx-auto grid grid-cols-12 gap-4">
-        <div class="col-start-2 col-span-10">
+      <div class="max-w-[1200px] mx-auto grid grid-cols-12 gap-6">
+        <div class="col-start-1 col-span-12">
           <div
             class="w-full bg-gradient-to-r from-indigo-500 to-purple-600 py-3 mb-4"
           >
@@ -285,7 +344,7 @@
           </div>
 
           <div
-            class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-4 gap-6"
+            class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-5 gap-6"
             id="allProduct-grid"
           >
             <!-- data from api -->
